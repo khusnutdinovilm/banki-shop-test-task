@@ -3,8 +3,7 @@
     font-family: $font-name;
     font-weight: $font-weight;
     font-style: normal;
-    src:
-      url("@/assets/fonts/#{$font-name}/#{$font-name}-#{$font-weight}.woff2") format("woff2"),
+    src: url("@/assets/fonts/#{$font-name}/#{$font-name}-#{$font-weight}.woff2") format("woff2"),
       url("@/assets/fonts/#{$font-name}/#{$font-name}-#{$font-weight}.woff") format("woff"),
       url("@/assets/fonts/#{$font-name}/#{$font-name}-#{$font-weight}.ttf") format("truetype");
   }
