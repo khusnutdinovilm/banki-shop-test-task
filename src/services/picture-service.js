@@ -6,7 +6,7 @@ class PictureService {
       setTimeout(() => {
         const pictures = db.map((picture) => {
           const images = picture.images.map(
-            (image) => `/assets/images/${image}`
+            (image) => `assets/images/${image}`
           );
           return {
             ...picture,
