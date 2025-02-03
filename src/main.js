@@ -5,10 +5,11 @@ import App from "./App.vue";
 import store from "./store";
 
 import uiComponents from "@/components/ui";
+import iconsComponents from "./components/icons";
 
 Vue.config.productionTip = false;
 
-uiComponents.forEach((component) => {
+[...uiComponents, ...iconsComponents].forEach((component) => {
   Vue.component(component.name, component);
 });
 
