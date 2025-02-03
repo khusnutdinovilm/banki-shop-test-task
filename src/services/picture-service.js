@@ -5,7 +5,9 @@ class PictureService {
     return new Promise((resolve) => {
       setTimeout(() => {
         const pictures = db.map((picture) => {
-          const images = picture.images.map((image) => `/assets/images/${image}`);
+          const images = picture.images.map(
+            (image) => `/assets/images/${image}`
+          );
           return {
             ...picture,
             images,
