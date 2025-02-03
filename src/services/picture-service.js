@@ -4,9 +4,17 @@ class PictureService {
   async fetchPictures() {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(db)
+        const pictures = db.map((picture) => {
+          const images = picture.images.map((image) => `/assets/images/${image}`);
+          return {
+            ...picture,
+            images,
+          };
+        });
+
+        resolve(pictures);
       }, 2000);
-    })
+    });
   }
 }
 
