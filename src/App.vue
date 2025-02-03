@@ -21,6 +21,7 @@
               :key="picture.id"
               :picture="picture"
               class="pictures-list__item"
+              @open-detail-info="openDetailInfo"
             />
           </div>
         </template>
@@ -28,6 +29,12 @@
     </main>
 
     <app-footer />
+
+    <detail-picture-modal
+      v-if="!!detailPicture"
+      :picture="detailPicture"
+      @close-detail-modal="onCloseDetailModal"
+    />
   </div>
 </template>
 
@@ -37,6 +44,8 @@
   import AppSearch from "@/components/app-search.vue";
   import PictureCard from "@/modules/picture/picture-card.vue";
 
+  import AppModal from "@/components/app-modal.vue";
+  import DetailPictureModal from "@/modules/picture/detail-picture-modal.vue";
   import { mapActions, mapGetters } from "vuex";
 
   export default {
@@ -46,13 +55,17 @@
       AppHeader,
       AppSearch,
       AppFooter,
+      AppModal,
       PictureCard,
+      DetailPictureModal,
     },
 
     data() {
       return {
         searchQuery: "",
         isContentLoading: false,
+        isModalOpen: true,
+        detailPicture: null,
       };
     },
 
@@ -92,6 +105,14 @@
 
     methods: {
       ...mapActions(["fetchPictures"]),
+
+      openDetailInfo(id) {
+        this.detailPicture = this.pictures.find((picture) => picture.id === id);
+      },
+
+      onCloseDetailModal() {
+        this.detailPicture = null;
+      },
     },
   };
 </script>

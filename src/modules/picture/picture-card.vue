@@ -44,6 +44,7 @@
 
 <script>
   import { mapActions, mapGetters } from "vuex";
+  import mixin from "./mixin";
 
   export default {
     name: "picture-card",
@@ -63,6 +64,8 @@
       };
     },
 
+    mixins: [mixin],
+
     computed: {
       ...mapGetters(["cartItems"]),
 
@@ -73,25 +76,6 @@
             "picture-card--sold": this.picture.sold,
           },
         ];
-      },
-
-      fullPictureTitle() {
-        const { title, artist } = this.picture;
-        return `«${title}» ${artist}`;
-      },
-
-      firstPictureImg() {
-        return this.picture.images[0];
-      },
-
-      getOldPrice() {
-        const { oldPrice } = this.picture;
-        return `${oldPrice.toLocaleString("ru-RU")} $`;
-      },
-
-      getPrice() {
-        const { price } = this.picture;
-        return `${price.toLocaleString("ru-RU")} $`;
       },
 
       isPictureInCart() {
