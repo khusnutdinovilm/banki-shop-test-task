@@ -8,6 +8,7 @@
       :id="id"
       type="text"
       class="base-input__field"
+      :placeholder="placeholder"
       :value="value"
       @input="onInput"
     />
@@ -110,6 +111,7 @@
       border: 1px solid #e1e1e1;
       color: currentColor;
       padding: 14px 16px;
+      width: 100%;
 
       &:active,
       &:focus,
