@@ -47,7 +47,9 @@ export default new Vuex.Store({
     },
 
     searchPictures({ state }, searchQuery) {
-      return state.pictures.filter((picture) => picture.title.includes(searchQuery));
+      return state.pictures.filter((picture) =>
+        picture.title.includes(searchQuery)
+      );
     },
 
     async addToCart({ commit }, id) {

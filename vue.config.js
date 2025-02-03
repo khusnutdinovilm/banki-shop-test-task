@@ -1,5 +1,6 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "/banki-shop-test-task/" : "/",
+  publicPath:
+    process.env.NODE_ENV === "production" ? "/banki-shop-test-task/" : "/",
 
   css: {
     loaderOptions: {

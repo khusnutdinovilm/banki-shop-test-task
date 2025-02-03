@@ -4,7 +4,13 @@
       {{ labelText }}
     </label>
 
-    <input :id="id" type="text" class="base-input__field" :value="value" @input="onInput" />
+    <input
+      :id="id"
+      type="text"
+      class="base-input__field"
+      :value="value"
+      @input="onInput"
+    />
   </div>
 </template>
 

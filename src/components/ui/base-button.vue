@@ -1,5 +1,10 @@
 <template>
-  <button class="base-button" :class="buttonClasses" :disabled="disabled" @click.prevent.stop="onClick">
+  <button
+    class="base-button"
+    :class="buttonClasses"
+    :disabled="disabled"
+    @click.prevent.stop="onClick"
+  >
     <div v-if="$slots.prepend && !loading" class="base-button__prepend">
       <slot name="prepend" />
     </div>
