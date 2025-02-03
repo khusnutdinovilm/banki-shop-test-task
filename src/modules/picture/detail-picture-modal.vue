@@ -5,13 +5,10 @@
     class="detail-picture-modal"
     @close-modal="$emit('close-detail-modal')"
   >
-    <div class="detail-picture-modal__header">
-      <img
-        :src="picture.images[0]"
-        alt=""
-        class="detail-picture-modal__image"
-      />
-    </div>
+    <base-image-slider
+      :images="picture.images"
+      class="detail-picture-modal__header"
+    ></base-image-slider>
 
     <div class="detail-picture-modal__description">
       {{ picture.description }}
@@ -30,6 +27,7 @@
 
 <script>
   import AppModal from "@/components/app-modal.vue";
+  import BaseImageSlider from "@/components/ui/base-image-slider.vue";
   import mixin from "./mixin";
 
   export default {
@@ -37,6 +35,7 @@
 
     components: {
       AppModal,
+      BaseImageSlider,
     },
 
     props: {
@@ -68,6 +67,10 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+    }
+
+    &__header {
+      width: 100%;
     }
 
     &__price {

@@ -37,6 +37,14 @@
 
     emits: ["close-modal"],
 
+    created() {
+      document.body.style.overflow = "hidden";
+    },
+
+    beforeDestroy() {
+      document.body.style.overflow = "scroll";
+    },
+
     methods: {
       closeModal() {
         this.$emit("close-modal");
@@ -59,6 +67,7 @@
     background-color: #000000a8;
 
     &__body {
+      max-height: 80%;
       max-width: 700px;
       background-color: #ffffff;
       padding: 20px;
@@ -67,6 +76,10 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+
+      @media (max-width: 768px) {
+        border-radius: 0;
+      }
     }
 
     &__header {
@@ -87,8 +100,10 @@
 
     &__close-btn {
       cursor: pointer;
-      // width: 30px;
-      // height: 30px;
+    }
+
+    &__content {
+      overflow-y: scroll;
     }
   }
 
