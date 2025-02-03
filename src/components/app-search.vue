@@ -7,7 +7,11 @@
       :debounce="300"
     />
 
-    <base-button label-text="Поиск" />
+    <base-button label-text="Поиск">
+      <template v-slot:prepend>
+        <loupe-icon />
+      </template>
+    </base-button>
   </div>
 </template>
 
@@ -53,6 +57,24 @@
 
     & .base-button {
       width: 122px;
+
+      @media (max-width: 576px) {
+        width: 48px;
+      }
+    }
+
+    & .base-button__prepend {
+      display: none;
+
+      @media (max-width: 576px) {
+        display: block;
+      }
+    }
+
+    & .base-button__content {
+      @media (max-width: 576px) {
+        display: none;
+      }
     }
   }
 </style>
