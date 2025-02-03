@@ -67,7 +67,7 @@
       display: none;
 
       @media (max-width: 576px) {
-        display: block;
+        @include flex-center;
       }
     }
 
