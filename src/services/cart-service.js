@@ -12,9 +12,6 @@ class CartService {
   async addToCart(id) {
     return new Promise((resolve) => {
       setTimeout(() => {
-        if (this.cartItems.has(id)) {
-          throw new Error("Товар уже существует в корзине");
-        }
         this.cartItems.add(id);
         this.saveToLS();
         resolve({ success: true });
@@ -25,9 +22,6 @@ class CartService {
   async removeFromCart(id) {
     return new Promise((resolve) => {
       setTimeout(() => {
-        if (!this.cartItems.has(id)) {
-          throw new Error("Товар уже существует в корзине");
-        }
         this.cartItems.delete(id);
         this.saveToLS();
         resolve({ success: true });

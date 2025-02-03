@@ -9,7 +9,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     pictures: [],
-    cartItems: new Set(JSON.parse(localStorage.getItem("cart-items")) || []),
+    cartItems: JSON.parse(localStorage.getItem("cart-items")) || [],
   },
 
   getters: {
@@ -18,7 +18,7 @@ export default new Vuex.Store({
     },
 
     cartItems(state) {
-      return state.cartItems;
+      return new Set(state.cartItems);
     },
   },
 
@@ -28,11 +28,11 @@ export default new Vuex.Store({
     },
 
     addToCart(state, id) {
-      state.cartItems.add(id);
+      state.cartItems.push(id);
     },
 
     removeFromCart(state, id) {
-      state.cartItems.delete(id);
+      state.cartItems = state.cartItems.filter((item) => item !== id);
     },
   },
 
@@ -57,6 +57,7 @@ export default new Vuex.Store({
         const responce = await cartService.addToCart(id);
 
         if (responce.success) {
+          console.log("add");
           commit("addToCart", id);
         }
       } catch (error) {
@@ -69,6 +70,7 @@ export default new Vuex.Store({
         const responce = await cartService.removeFromCart(id);
 
         if (responce.success) {
+          console.log("remove");
           commit("removeFromCart", id);
         }
       } catch (error) {
