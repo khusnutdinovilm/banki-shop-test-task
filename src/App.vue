@@ -9,10 +9,13 @@
     <main>
       {{ searchQuery }}
     </main>
+
+    <app-footer />
   </div>
 </template>
 
 <script>
+  import AppFooter from "@/components/app-footer.vue";
   import AppHeader from "@/components/app-header.vue";
   import AppSearch from "@/components/app-search.vue";
 
@@ -22,6 +25,7 @@
     components: {
       AppHeader,
       AppSearch,
+      AppFooter,
     },
 
     data() {
@@ -32,4 +36,14 @@
   };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+  #app {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+
+    & main {
+      flex: 1;
+    }
+  }
+</style>
